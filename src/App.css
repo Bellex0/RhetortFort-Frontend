@@ -20,3 +20,40 @@
 .App-link {
   color: #09d3ac;
 }
+
+body {
+  background-color: #D3D3D3 !important;
+}
+
+.the-fucking-button:hover
+{
+  background-color: #0bc2fa;
+  color: white;
+  font-weight: bold;
+}
+
+.nick-card
+{
+  transition: 0.17s;
+}
+
+.nick-card:hover
+{
+  box-shadow: 2px 2px 2px black;
+  transform: scale(1.1);
+  transition: 0.17s;
+}
+
+#submit-button:hover
+{
+  background-color: #64e759 !important;
+  font-weight: bold !important;
+}
+
+#submit-button:hover
+{
+  background-color: #64e759 !important;
+  font-weight: bold !important;
+}
+
+
