@@ -1,4 +1,5 @@
 import React from 'react';
+import {Animated} from 'react-animated-css'
 
 class LogIn extends React.Component {
 
@@ -35,9 +36,9 @@ class LogIn extends React.Component {
           errors: data.errors
         })
       } else {
-        this.props.history.push('/')
-        console.log(data)
-        this.props.gotToken(data.token, data.user_id)
+        this.props.history.push('/main')
+        console.log(this.state.username)
+        this.props.gotToken(data.token, data.user_id, this.state.username)
       }
     })
     // when fetch is done...get token
@@ -63,8 +64,9 @@ class LogIn extends React.Component {
           errors: data.errors
         })
       } else {
+        this.props.history.push('/main')
         console.log(data)
-        this.props.gotToken(data.token, data.user_id)
+        this.props.gotToken(data.token, data.user_id, this.state.username)
       }
     })
     // when fetch is done...get token
@@ -72,6 +74,8 @@ class LogIn extends React.Component {
   
   render(){
     return <>
+    <h1 class="animated infinite pulse delay-2s" id="title" style={{"font-size": "48px" }} >Rhetort Fort 🏴‍☠️</h1>
+    <h2 id="title" style={{"font-size": "32px" }}>abandon all hope ye who enter here</h2><br/>
       <ul>
         {
           this.state.errors.map(error => <li>{ error }</li>)
@@ -81,42 +85,58 @@ class LogIn extends React.Component {
         this.state.logIn 
         ? 
         <div className="container">
-          <h2>Log In</h2>
-          <button onClick={ () => this.setState({ logIn: false }) }>I need to register!!!</button>
-          <form className="form-signin" onSubmit={ this.logInSubmitted }>
-            <label  htmlFor="log_in_username">Username</label>
+          <h2 id="title" style={{"font-size": "24px" }}>Log In Scallywags</h2>
+          <button class="accountbutton" style={{"font-family":"Special Elite", "font-size":"14 px", 'padding': '4px 12px', 'border-radius': '50px', 'margin-top': '16px'}} 
+          onClick={ () => this.setState({ logIn: false }) }>Sign Up</button><br/>
+          <br/><form className="form-signin" onSubmit={ this.logInSubmitted }>
+            <div>
+            <label  id="label" style={{"font-family":"Special Elite"}} htmlFor="log_in_username">Username</label>
             <input  id="log_in_username" 
                     type="text" 
                     onChange={ this.handleChange /* for controlled form input status */ } 
-                    name="username" 
-                    value={ this.state.username /* for controlled form input status */ } />
-            <label  htmlFor="log_in_password">Password</label>
+                    name="username"
+                    placeholder="existing username" 
+                    value={ this.state.username /* for controlled form input status */ } 
+                    />
+                    </div>
+              <div>
+            <label  id="label" style={{"font-family":"Special Elite"}} htmlFor="log_in_password">Password</label>
             <input  id="log_in_password" 
                     type="password" 
                     onChange={ this.handleChange } 
                     name="password" 
-                    value={ this.state.password } />
-            <input type="submit" />
+                    placeholder="existing password"
+                    value={ this.state.password } 
+                    />
+            </div>
+            <input class="submit-button" style={{'padding': '4px 12px', 'border-radius': '50px', 'margin-top': '16px', "font-family":"Special Elite", "font-size":"16 px"}} type="submit" />
           </form>
         </div>
         :
         <section>
-          <h2>Sign up</h2>
-          <button onClick={ () => this.setState({ logIn: true }) }>I already signed up!!!</button>
+          <h2 id="title" style={{"font-size": "24px" }}>Sign up for depravity</h2><br/>
+          <button class="accountbutton" style={{"font-family":"Special Elite", "font-size":"14 px", 'padding': '4px 12px', 'border-radius': '50px', 'margin-top': '16px'}}onClick={ () => this.setState({ logIn: true }) }>Already have an account</button><br/>
+          <br/>
           <form onSubmit ={this.signupSubmit}>
-            <label  htmlFor="sign_up_username">Username</label>
+            <div>
+            <label  style={{"font-family":"Special Elite", "font-size":"18 px"}} htmlFor="sign_up_username">Username</label>
             <input  id="sign_up_username" 
                     type="text" 
                     onChange={ this.handleChange } 
                     name="username" 
+                    placeholder="new username"
                     value={ this.state.username } />
-            <label  htmlFor="sign_up_password">Password</label>
+                    </div>
+                    <div>
+            <label  style={{"font-family":"Special Elite", "font-size":"18 px"}} htmlFor="sign_up_password">Password</label>
             <input  id="sign_up_password" 
                     type="password" 
                     onChange={ this.handleChange } 
                     name="password" 
+                    placeholder="new password"
                     value={ this.state.password } />
-            <input type="submit" />
+                    </div>
+            <input class="submit-button" style={{"font-family":"Special Elite", "font-size":"16 px", 'padding': '4px 12px', 'border-radius': '50px', 'margin-top': '16px'}} type="submit" />
           </form>
         </section>
       }

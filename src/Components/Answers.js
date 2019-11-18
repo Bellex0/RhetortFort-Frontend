@@ -80,11 +80,11 @@ export default class Answers extends Component {
     }
 
     winner = () => {
-        console.log(this.props.answer.id);
-        console.log(this.props.winner.id);
+        // console.log(this.props.answer.id);
+        // console.log(this.props.winner.id);
         if(this.props.answer.id === this.props.winner.id){
             // render() {
-                return "🔥Winner 💥"
+                return <h3 style={{"font-family":"Special Elite", "font-size":"16 px"}}>🔥Conqueror💥</h3>
                     // }
                 }
         else {
@@ -99,19 +99,23 @@ export default class Answers extends Component {
         // console.log(this.props.answer.user_id);
         // // console.log(parseInt(localStorage.loggedInUserID);
         return (
-            <div>
-                <h3>
+            
+            <div className="just to see">
+               
                         <br/>
                             <h3 class="animated wobble delay-5s"><b>{this.winner()}</b></h3>
-                        <br/>
-                            {this.props.answer.answer} 
+                        
+
+                        <div>
+                            <h4>{this.props.answer.answer} </h4>
                             {this.props.sort}
+                        </div>  
                         <br/>
-                            <button class="animated wobble delay-2s" style={{"border-radius": "50px"}} onClick={this.increaseLikes}> 😂Like:{this.state.like}</button>
+                            <button className="like-button" style={{"font-family":"Special Elite", 'padding': '4px 12px', 'border-radius': '50px', "border-radius": "72px", "font-size":"16px", "margin-right":"40 px", }} onClick={this.increaseLikes}> 😂Like:{this.state.like}</button>
                         <br/>
-                </h3>
+                
                     { parseInt(this.props.answer.user_id) == parseInt(localStorage.loggedInUserId) ? 
-                        <button style={{"border-radius": "50px"}} onClick={this.deleteAnswer}>Delete this Answer</button>
+                        <button className="delete-button" style={{"font-family":"Special Elite", 'padding': '4px 12px', 'border-radius': '50px', 'margin-top': '16px', "font-size":"16px"}} onClick={this.deleteAnswer}>Delete this Answer</button>
                             :
                          null
                     }   

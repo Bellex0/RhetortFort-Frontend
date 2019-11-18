@@ -42,8 +42,9 @@ export default class AnswerForm extends Component {
               name="answer"
               value={this.state.answer}
               onChange={this.handleChange}
+              required
               />
-            <Button id="submit-button" style={{"border-radius": "50px"}} type="submit">Submit Answer</Button>
+            <Button id="submit-button" style={{"font-family":"Special Elite", "border-radius": "50px"}} type="submit">Submit Answer</Button>
             </Form>
             
             </div>

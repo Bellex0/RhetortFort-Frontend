@@ -86,7 +86,7 @@ export default class AnswerContainer extends Component {
 
         return (
             <div>
-                <button onClick={this.props.backButton}>Back to Questions</button>
+                <button class="backtoq" style={{'padding': '4px 12px', 'border-radius': '50px', 'margin-top': '16px', "font-family":"Special Elite", "margin-bottom":"16 px"}}onClick={this.props.backButton}>Back to Questions</button><br/><br/>
                 <div>
                     <AnswerForm question={this.state.parentQ} questionID={this.props.selectedQuestion} handleSubmit={this.handleSubmit}/>
                 </div>
@@ -94,6 +94,7 @@ export default class AnswerContainer extends Component {
                 {ansArray.map(answer => { 
                     // console.log(answer);
             return <Answers mount={this.componentDidMount} answer={answer} questionID={this.props.selectedQuestion} ans_id={answer.id} likes={answer.like} winner={this.state.selectedQ[0]} />
+                
         })}
                 {/* <Answers selectedQuestion={this.props} /> */}
 

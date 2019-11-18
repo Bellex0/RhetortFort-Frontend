@@ -12,17 +12,20 @@ class App extends React.Component {
 
   state = {
     loggedInUserId: null,
-    token: null
+    token: null,
+    username: null
   }
 
-  gotToken = (token, loggedInUserId) => {
+  gotToken = (token, loggedInUserId, username) => {
     // debugger
     // console.log("logged in", token)
     localStorage.token = token
     localStorage.loggedInUserId = loggedInUserId
+    localStorage.username = username
     this.setState({
       token,
-      loggedInUserId
+      loggedInUserId,
+      username
     })
   }
 
@@ -31,12 +34,14 @@ class App extends React.Component {
     // localStorage.token = null
     // localStorage.loggedInUserId = null
     // debugger
-    // this.setState({
-    //   token: null,
-    //   loggedInUserId: null
-    // })
+    this.setState({
+      token: null,
+      loggedInUserId: null,
+      username: null
+    })
     // console.log(props);
-    this.props.history.push('/login')
+    
+    this.props.history.push('/')
   }
 
   componentDidMount(){
@@ -44,7 +49,8 @@ class App extends React.Component {
     if (localStorage.token) {
       this.setState({
         token: localStorage.token,
-        loggedInUserId: localStorage.loggedInUserId
+        loggedInUserId: localStorage.loggedInUserId,
+        username: localStorage.username
       })
     }
   }
@@ -53,7 +59,19 @@ class App extends React.Component {
     this.props.history.go(-1)
   }
 
+  // welcome = () => {
+  //   const name = this.state.username 
+  //   if (this.state.username){
+  //       return name <Text>Welcome</Text>
+  //   }
+  //   else{
+  //     return null
+  //   }
+
+  // }
+
   render() {
+    const name = this.state.username
   return (
     <div className="App">
       {/* <header className="App-header"> */}
@@ -83,13 +101,47 @@ class App extends React.Component {
       </NavLink> */} 
       {/* <NavLink to="/login"> link</NavLink> */}
       {/* <NavBar></NavBar> */}
-      <button onClick={this.goBack}>Back</button>
-        <button onClick={this.logOutClicked}>Logout</button>
+
+        {/* // NavBar begins */}
+            
+              <nav class="navbar" style={{'margin-bottom': '24px'}}>
+                {/* <span class="navbar-toggle" id="js-navbar-toggle"> */}
+                        {/* <i class="fas fa-bars"></i> */}
+                {/* <a img src="rhetort.jpg" href="#" class="logo">logo</a>
+                    </span> */}
+                    <div className= "logo1" style = {{"width":"20px"}} >
+                        <img src="rhetort.jpg" alt="Trulli" width="130" height="60" style={{"margin":"-9px"}}></img>
+                    </div>
+                <ul class="main-nav" id="js-menu">
+                  <li>
+                    <a  href="#" class="nav-links">{this.state.username ? <text>Welcome {this.state.username} </text> : null}
+                       </a>
+                  </li>
+                  <li>
+                    <a onClick={this.logOutClicked} href="#" class="nav-links">Log Out </a>
+                  </li>
+                  <li>
+                    <a onClick={this.goBack} href="#" class="nav-links"> Go Back </a>
+                  </li>
+                  <li>
+                  
+                  <a href="https://github.com/Bellex0/RetortFort-Backend" class="nav-links">Git Backend </a>
+                  <i class="fa fa-github" style={{"font-size":"20px"}}></i>
+                  </li>
+                  <li>
+                 
+                    <a href="https://github.com/Bellex0/RetortFort-Frontend" class="nav-links">Git Frontend</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            {/* </body> */}
+          {/* // NavBar ends  */}
       <Switch>
-        <Route path='/login' render={(routerProps) => {return <Login gotToken={this.gotToken} {...routerProps}/>}} />
+        <Route exact path='/'  render={(routerProps) => {return <Login gotToken={this.gotToken} {...routerProps}/>}} />
         <Route path={'/questions'} component={Questions} />
         <Route path={'/answers'} component={Answers} />
-        <Route exact path={'/'} component={Homepage} />
+        <Route exact path={'/main'} component={Homepage} />
       </Switch>
       {/* <Homepage /> */}
     </div>

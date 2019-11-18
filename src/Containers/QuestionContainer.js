@@ -20,11 +20,13 @@ export default class QuestionContainer extends Component {
         }, () => { console.log(this.state)})
     }
 
-
-
     componentDidMount = () => {
         console.log("triggered");
     }
+
+    // readQ = (e) => {
+    //     props.readQuestion
+    // }
 
     render() {
         // console.log(this.props.questions.question)
@@ -36,7 +38,8 @@ export default class QuestionContainer extends Component {
     
 
         // filter the quesArray to the result ques, which matches the query string in the question.question
-        const quesItem = searchArray.map(question => <Questions question={question.question} questionID={question.id} seeAnswers={this.props.seeAnswers} backButton={this.componentDidMount()} />)
+        const quesItem = searchArray.map(question => <Questions question={question.question} 
+            questionID={question.id} seeAnswers={this.props.seeAnswers} backButton={this.componentDidMount()} readQuestion={this.props.readQuestion} readQ ={this.props.readQ} />)
         
         return (
             <React.Fragment>
