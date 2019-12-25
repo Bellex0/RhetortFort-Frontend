@@ -34,9 +34,10 @@ export default class AnswerForm extends Component {
     render() {
         return (
             <div>
-                <h3>{this.props.question}</h3>
-            <Form onSubmit={(e) => this.handleSubmit(e)}>
+                <h3 style={{"margin-bottom":"14px"}}>{this.props.question}</h3>
+            <Form style={{"display":"flex", "justify-content":"center", "align-items":"center"}} onSubmit={(e) => this.handleSubmit(e)}>
             <Form.Input
+          width={11}
               fluid
               placeholder="Insert Clever Answer Here" 
               name="answer"
@@ -44,8 +45,9 @@ export default class AnswerForm extends Component {
               onChange={this.handleChange}
               required
               />
-            <Button id="submit-button" style={{"font-family":"Special Elite", "border-radius": "50px"}} type="submit">Submit Answer</Button>
+             <Button id="submit-button" style={{"font-family":"Special Elite", "border-radius": "10px"}} type="submit">Submit Answer</Button>
             </Form>
+           
             
             </div>
         )

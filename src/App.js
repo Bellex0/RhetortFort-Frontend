@@ -114,7 +114,7 @@ class App extends React.Component {
                     </div>
                 <ul class="main-nav" id="js-menu">
                   <li>
-                    <a  href="#" class="nav-links">{this.state.username ? <text>Welcome {this.state.username} </text> : null}
+                    <a  href="/main" class="nav-links">{this.state.username ? <text>Welcome {this.state.username} </text> : null}
                        </a>
                   </li>
                   <li>
