@@ -13,7 +13,7 @@ export default class AnswerContainer extends Component {
 
 
         componentDidMount = () => {
-            fetch(`http://localhost:3000/api/v1/questions/${this.props.selectedQuestion}`)
+            fetch(`https://rhetort-fort-api.herokuapp.com/api/v1/questions/${this.props.selectedQuestion}`)
             .then(r => r.json())
             .then(r => {
                 console.log(r.question.question)
@@ -39,7 +39,7 @@ export default class AnswerContainer extends Component {
 
     handleSubmit = (e) => {
         // console.log(e, this.props.selectedQuestion, this.state.token);
-        fetch(`http://localhost:3000/api/v1/questions/${this.props.selectedQuestion}/answers`, {
+        fetch(`https://rhetort-fort-api.herokuapp.com//api/v1/questions/${this.props.selectedQuestion}/answers`, {
             method: "POST",
             headers: {
                 "Content-Type": "Application/json",

@@ -117,22 +117,29 @@ class App extends React.Component {
                     <a  href="/main" class="nav-links">{this.state.username ? <text>Welcome {this.state.username} </text> : null}
                        </a>
                   </li>
-                  <li>
-                    <a onClick={this.logOutClicked} href="#" class="nav-links">Log Out </a>
-                  </li>
-                  <li>
+                  {/* <li>
                     <a onClick={this.goBack} href="#" class="nav-links"> Go Back </a>
                   </li>
                   <li>
+                    <a onClick={this.logOutClicked} href="#" class="nav-links">Log Out </a>
+                  </li> */}
+                  <li>
+                  {this.state.username ? <a onClick={this.goBack} href="#" class="nav-links"> Go Back </a>: null}
+                  </li>
+                  <li>
+                    {this.state.username ? <a onClick={this.logOutClicked} href="#" class="nav-links">Log Out </a>: null}
+                  </li>
+                 
+                  {/* <li>
                   
-                  <a href="https://github.com/Bellex0/RetortFort-Backend" class="nav-links">Git Backend </a>
+                  <a href="https://github.com/RetortFort-Backend" class="nav-links">Git Backend </a>
                   <i class="fa fa-github" style={{"font-size":"20px"}}></i>
                   </li>
                   <li>
                  
-                    <a href="https://github.com/Bellex0/RetortFort-Frontend" class="nav-links">Git Frontend</a>
+                    <a href="https://github.com/RetortFort-Frontend" class="nav-links">Git Frontend</a>
                     
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             {/* </body> */}

@@ -22,7 +22,7 @@ export default class Homepage extends Component {
     }
 
 componentDidMount(){
-    fetch('http://localhost:3000/api/v1/questions')
+    fetch('https://rhetort-fort-api.herokuapp.com/api/v1/questions')
     .then(res => res.json())
     .then(questionsData => {
         this.setState({

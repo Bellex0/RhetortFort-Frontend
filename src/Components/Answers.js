@@ -31,7 +31,7 @@ export default class Answers extends Component {
 
 
     increaseLikes = () => {
-        fetch(`http://localhost:3000/api/v1/questions/${this.props.questionID}/answers/${this.props.ans_id}`, {
+        fetch(`https://rhetort-fort-api.herokuapp.com/api/v1/questions/${this.props.questionID}/answers/${this.props.ans_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "Application/json",
@@ -70,7 +70,7 @@ export default class Answers extends Component {
 
     deleteAnswer = () => {
         console.log("delete");
-        fetch(`http://localhost:3000/api/v1/questions/${this.props.questionID}/answers/${this.props.ans_id}`, {
+        fetch(`https://rhetort-fort-api.herokuapp.com/api/v1/questions/${this.props.questionID}/answers/${this.props.ans_id}`, {
             method: "DELETE",
         })
         .then(r => {

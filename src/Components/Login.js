@@ -20,7 +20,7 @@ class LogIn extends React.Component {
     event.preventDefault()
     // console.log("clicked")
     // make a fetch
-    fetch("http://localhost:3000/api/v1/login", {
+    fetch("https://rhetort-fort-api.herokuapp.com/api/v1/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -48,7 +48,7 @@ class LogIn extends React.Component {
     event.preventDefault()
     // console.log("clicked")
     // make a fetch
-    fetch("http://localhost:3000/api/v1/signup", {
+    fetch("https://rhetort-fort-api.herokuapp.com/api/v1/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
