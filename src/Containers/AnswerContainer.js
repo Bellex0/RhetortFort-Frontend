@@ -39,7 +39,7 @@ export default class AnswerContainer extends Component {
 
     handleSubmit = (e) => {
         // console.log(e, this.props.selectedQuestion, this.state.token);
-        fetch(`https://rhetort-fort-api.herokuapp.com//api/v1/questions/${this.props.selectedQuestion}/answers`, {
+        fetch(`https://rhetort-fort-api.herokuapp.com/api/v1/questions/${this.props.selectedQuestion}/answers`, {
             method: "POST",
             headers: {
                 "Content-Type": "Application/json",
