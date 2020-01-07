@@ -1,6 +1,6 @@
 # Rhetort Fort
 
-### [App](http://youtu.be/vGQjqqLc19Y)
+### [App](http://rhetortfort.surge.sh)
 ### [Demo](https://youtu.be/vGQjqqLc19Y)
 
 An entertainment app inspired by the games, "Cards Against Humanity" and "Quiplash". Users submit humorous answers to various questions and users vote on the best result.
